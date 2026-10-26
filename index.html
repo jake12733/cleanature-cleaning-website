@@ -32,12 +32,19 @@
     .font-serif-brand {
       font-family: 'Cinzel', serif;
     }
+    /* 사진 잘림 방지용 자연스러운 중앙 정렬 */
+    .img-fluid-uncropped {
+      object-fit: cover;
+      object-position: center;
+      width: 100%;
+      height: 100%;
+    }
   </style>
 </head>
 <body class="bg-white text-slate-900 antialiased selection:bg-slate-900 selection:text-white flex flex-col min-h-screen">
 
   <!-- ================= TOP HEADER NAVIGATION ================= -->
-  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-xs py-3.5">
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs py-3.5">
     <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between gap-8">
       <!-- Zone 1: Wordmark -->
       <a href="#" class="text-xl md:text-2xl font-bold tracking-widest uppercase text-slate-950 font-serif-brand shrink-0">
@@ -87,9 +94,8 @@
   </header>
 
   <main class="flex-1">
-    <!-- ================= 1. HERO SECTION ================= -->
+    <!-- ================= 1. HERO SECTION (사진 잘림 방지 16:10/16:9 프레임) ================= -->
     <section class="relative pt-32 pb-20 md:pt-40 md:pb-32 bg-white overflow-hidden">
-      <!-- Portfolio Demo Notice Banner -->
       <div class="max-w-7xl mx-auto px-6 md:px-12 mb-6">
         <div class="py-2 px-4 rounded-lg bg-slate-100 border border-slate-200 text-slate-700 text-xs flex flex-wrap items-center justify-between gap-2">
           <div class="flex items-center gap-2">
@@ -100,14 +106,13 @@
             </span>
           </div>
           <span class="text-[11px] font-semibold text-slate-500">
-            디자인 완성도 & 기능 작동 검증 데모
+            와이드 비율 사진 잘림 방지 적용 완료
           </span>
         </div>
       </div>
 
       <div class="max-w-7xl mx-auto px-6 md:px-12">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          <!-- Left: Copy & Actions -->
           <div class="lg:col-span-7 space-y-6">
             <div class="space-y-2">
               <span class="text-xs font-semibold tracking-widest uppercase text-slate-500">
@@ -134,7 +139,6 @@
               </a>
             </div>
 
-            <!-- Factual Trust Indicators -->
             <div class="pt-6 border-t border-slate-200/80 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs text-slate-600">
               <div>
                 <span class="block font-bold text-slate-900 text-sm">100%</span>
@@ -155,23 +159,23 @@
             </div>
           </div>
 
-          <!-- Right: Hero Image -->
-          <div class="lg:col-span-5 relative">
-            <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200/80 aspect-4/3 lg:aspect-5/4">
+          <!-- Hero Image: 가로형 와이드 사진이 잘리지 않는 aspect-16/10 컨테이너 -->
+          <div class="lg:col-span-5 relative w-full">
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200/80 aspect-16/10 sm:aspect-16/9 lg:aspect-4/3 w-full bg-slate-900">
               <img
                 src="/src/assets/images/cleanature_hero_penthouse_1793016338692.jpg"
                 alt="CLEANATURE 하이엔드 펜트하우스 프리미엄 입주 청소 완료 공간"
-                class="w-full h-full object-cover"
+                class="img-fluid-uncropped"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
-              <div class="absolute bottom-5 left-5 right-5 text-white">
-                <span class="text-[11px] uppercase tracking-wider font-semibold text-slate-300 block">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none"></div>
+              <div class="absolute bottom-4 left-4 right-4 sm:bottom-5 sm:left-5 sm:right-5 text-white">
+                <span class="text-[10px] sm:text-[11px] uppercase tracking-wider font-semibold text-slate-300 block">
                   Signature Project 01
                 </span>
-                <p class="text-sm font-bold tracking-tight text-white mt-0.5">
+                <p class="text-xs sm:text-sm font-bold tracking-tight text-white mt-0.5">
                   용산 하이엔드 펜트하우스 준공 입주 마스터 클리닝
                 </p>
-                <div class="flex items-center gap-2 text-[11px] text-slate-300 mt-1">
+                <div class="flex items-center gap-2 text-[10px] sm:text-[11px] text-slate-300 mt-1">
                   <span>전용 64평형</span>
                   <span>·</span>
                   <span>친환경 고온스팀 & 새집증후군 케어</span>
@@ -233,11 +237,11 @@
             </div>
           </div>
 
-          <div class="lg:col-span-5 relative rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm flex flex-col justify-end min-h-[380px]">
+          <div class="lg:col-span-5 relative rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm flex flex-col justify-end min-h-[380px] bg-slate-900">
             <img
               src="/src/assets/images/cleanature_kitchen_detail_1793016340279.jpg"
               alt="CLEANATURE 주방 천연 대리석 및 하이엔드 인덕션 디테일 클리닝"
-              class="absolute inset-0 w-full h-full object-cover"
+              class="absolute inset-0 w-full h-full object-cover object-center"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
             <div class="relative p-6 sm:p-8 text-white space-y-2">
@@ -257,7 +261,7 @@
       </div>
     </section>
 
-    <!-- ================= 3. SERVICES SECTION ================= -->
+    <!-- ================= 3. SERVICES SECTION (정비율 16:10 / 4:3 뷰포트) ================= -->
     <section id="services" class="py-24 md:py-32 bg-white">
       <div class="max-w-7xl mx-auto px-6 md:px-12">
         <div class="max-w-2xl mb-14 space-y-3">
@@ -273,7 +277,6 @@
           </p>
         </div>
 
-        <!-- Tab Switcher -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-2 p-1.5 bg-slate-100 rounded-xl mb-10">
           <button onclick="switchServiceTab('movein')" id="tab-btn-movein" class="service-tab-btn py-3 px-4 text-xs sm:text-sm font-semibold rounded-lg transition-all bg-white text-slate-950 shadow-xs">
             입주·이사 청소
@@ -289,7 +292,6 @@
           </button>
         </div>
 
-        <!-- Dynamic Service Content Card -->
         <div id="service-card" class="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 sm:p-10 lg:p-12">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div class="lg:col-span-7 space-y-6">
@@ -322,8 +324,9 @@
               </div>
             </div>
 
-            <div class="lg:col-span-5 relative rounded-2xl overflow-hidden border border-slate-200/80 shadow-md aspect-4/3 lg:aspect-square">
-              <img id="svc-img" src="/src/assets/images/cleanature_hero_penthouse_1793016338692.jpg" alt="시공 완료 공간" class="w-full h-full object-cover">
+            <!-- 1:1 정사각형 강제 크롭을 해제하고 16:10 / 4:3 정비율 적용 -->
+            <div class="lg:col-span-5 relative rounded-2xl overflow-hidden border border-slate-200/80 shadow-md aspect-16/10 sm:aspect-4/3 w-full bg-slate-900">
+              <img id="svc-img" src="/src/assets/images/cleanature_hero_penthouse_1793016338692.jpg" alt="시공 완료 공간" class="img-fluid-uncropped">
             </div>
           </div>
         </div>
@@ -344,7 +347,6 @@
           </p>
         </div>
 
-        <!-- Comparison Table -->
         <div class="bg-slate-800/80 rounded-2xl border border-slate-700/80 overflow-hidden shadow-xl mb-20">
           <div class="overflow-x-auto">
             <table class="w-full text-left text-xs sm:text-sm border-collapse">
@@ -388,7 +390,7 @@
       </div>
     </section>
 
-    <!-- ================= 5. GALLERY SECTION ================= -->
+    <!-- ================= 5. GALLERY SECTION (와이드 뷰 카드) ================= -->
     <section id="gallery" class="py-24 md:py-32 bg-slate-50 border-y border-slate-200/80">
       <div class="max-w-7xl mx-auto px-6 md:px-12">
         <div class="max-w-2xl mb-12 space-y-3">
@@ -404,8 +406,8 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs flex flex-col">
-            <div class="relative aspect-4/3 overflow-hidden bg-slate-100">
-              <img src="/src/assets/images/cleanature_hero_penthouse_1793016338692.jpg" alt="용산 한남 더힐 펜트하우스" class="w-full h-full object-cover">
+            <div class="relative aspect-16/10 sm:aspect-4/3 overflow-hidden bg-slate-900">
+              <img src="/src/assets/images/cleanature_hero_penthouse_1793016338692.jpg" alt="용산 한남 더힐 펜트하우스" class="img-fluid-uncropped">
               <span class="absolute top-3 left-3 bg-white/90 px-2.5 py-1 rounded-md text-[11px] font-bold text-slate-900">펜트하우스</span>
             </div>
             <div class="p-5 flex-1 flex flex-col justify-between space-y-2">
@@ -419,8 +421,8 @@
           </div>
 
           <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs flex flex-col">
-            <div class="relative aspect-4/3 overflow-hidden bg-slate-100">
-              <img src="/src/assets/images/cleanature_office_commercial_1793016339915.jpg" alt="판교 IT사옥" class="w-full h-full object-cover">
+            <div class="relative aspect-16/10 sm:aspect-4/3 overflow-hidden bg-slate-900">
+              <img src="/src/assets/images/cleanature_office_commercial_1793016339915.jpg" alt="판교 IT사옥" class="img-fluid-uncropped">
               <span class="absolute top-3 left-3 bg-white/90 px-2.5 py-1 rounded-md text-[11px] font-bold text-slate-900">사옥 & 오피스</span>
             </div>
             <div class="p-5 flex-1 flex flex-col justify-between space-y-2">
@@ -434,8 +436,8 @@
           </div>
 
           <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs flex flex-col">
-            <div class="relative aspect-4/3 overflow-hidden bg-slate-100">
-              <img src="/src/assets/images/cleanature_kitchen_detail_1793016340279.jpg" alt="주방 딥클리닝" class="w-full h-full object-cover">
+            <div class="relative aspect-16/10 sm:aspect-4/3 overflow-hidden bg-slate-900">
+              <img src="/src/assets/images/cleanature_kitchen_detail_1793016340279.jpg" alt="주방 딥클리닝" class="img-fluid-uncropped">
               <span class="absolute top-3 left-3 bg-white/90 px-2.5 py-1 rounded-md text-[11px] font-bold text-slate-900">주방 디테일</span>
             </div>
             <div class="p-5 flex-1 flex flex-col justify-between space-y-2">
@@ -547,7 +549,6 @@
           <div class="lg:col-span-5 bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-200/80 space-y-6">
             <h3 class="font-bold text-base text-slate-950 border-b pb-3">예상 견적 계산기</h3>
 
-            <!-- 1. Service select -->
             <div class="space-y-2">
               <label class="text-xs font-bold text-slate-700 block">1. 서비스 종류 선택</label>
               <div class="grid grid-cols-2 gap-2 text-xs">
@@ -558,7 +559,6 @@
               </div>
             </div>
 
-            <!-- 2. Area slider -->
             <div class="space-y-2">
               <div class="flex justify-between text-xs">
                 <label class="font-bold text-slate-700">2. 시공 면적</label>
@@ -567,7 +567,6 @@
               <input type="range" id="area-slider" min="10" max="100" value="34" oninput="updateArea(this.value)" class="w-full accent-slate-950 cursor-pointer">
             </div>
 
-            <!-- 3. Addon Checkboxes -->
             <div class="space-y-2">
               <label class="text-xs font-bold text-slate-700 block">3. 특수 옵션</label>
               <div class="space-y-2 text-xs">
@@ -588,7 +587,6 @@
               </div>
             </div>
 
-            <!-- Total Price Display -->
             <div class="p-4 bg-white rounded-xl border border-slate-200 space-y-1">
               <div class="flex justify-between text-xs text-slate-500">
                 <span>예상 견적 합계</span>
